@@ -8,7 +8,7 @@
  * @author Antopower <antomatic10@gmail.com>
  */
 
-namespace OCA\ItPlays\AppInfo;
+
 \OCP\Util::addStyle('hyperionmusic', '../3rdparty/fontawesome/css/font-awesome.min');
 
 \OCP\App::addNavigationEntry([
