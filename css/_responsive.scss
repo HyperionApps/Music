@@ -1,0 +1,58 @@
+@media screen and (min-width: 0px) and (max-width: 480px){
+  .player-center,
+  .song-status {
+    width: 100% !important;
+  }
+  .player-container .player-left {
+    text-align: center;
+    width: 100%;
+  }
+  .player-container .player-right {
+    text-align: center;
+    width: 100%;
+  }
+  .song-status {
+    text-align: left;
+  }
+  .song-status .song-info {
+    width: 79%;
+  }
+  .player-main-button {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 640px) {
+  .player-center,
+  .song-status {
+    width: 100% !important;
+  }
+  .player-container .player-left {
+    text-align: center;
+    width: 100%;
+  }
+  .player-container .player-right {
+    text-align: center;
+    width: 100%;
+  }
+  .song-status {
+    text-align: left;
+  }
+  .song-status .song-info {
+    width: 90%;
+  }
+  .player-main-button {
+    text-align: center;
+  }
+  .player-center .seek-bar-track {
+    display: none;
+  }
+  .time-separator {
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 641px) and (max-width: 768px) {
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+}
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+}

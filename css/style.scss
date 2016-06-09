@@ -1,0 +1,183 @@
+$primary-color: #1d2d44;
+$lighter-color: darken( rgba( $primary-color, .1 ), 10% );
+$light-color: darken( rgba( $primary-color, .3 ), 10% );
+$secondary-color: #717171;
+
+@import 'player';
+@import 'responsive';
+
+.mpbc {
+	background-color: $primary-color;
+}
+.mpbsc {
+	box-shadow: 1px 1px 13px $primary-color;
+}
+.secondary-color {
+	color: $secondary-color;
+}
+.ui-slider-range {
+	background: $primary-color;
+}
+
+#app-navigation {
+	z-index: 2;
+}
+
+/* ----- Song List ----- */
+.no-music-found {
+	text-align: center;
+	padding-top: 10px;
+	font-size: 20px;
+	color: $secondary-color;
+}
+.playing-song {
+  background-color: $light-color;
+}
+tr.song {
+	height: 35px;
+}
+tr.song:hover {
+	background-color: $lighter-color;
+}
+tr.song td {
+	border-bottom: 1px solid #eee;
+}
+#songlist thead th {
+	border-bottom: 1px solid #eee;
+	border-right: 1px solid #eee;
+	border-top: 1px solid #eee;
+	padding-left: 10px;
+}
+#songlist {
+	padding: 2px 2px 66px 2px;
+}
+
+/* ----- Artist List ----- */
+.artist-list-container {
+	display: inline-block;
+	cursor: pointer;
+	margin: 10px;
+	background-color: #1D2D44;
+	color: white;
+	border-radius: 4px;
+	max-width: 150px;
+}
+.artist-list-container:hover {
+	background-color: $lighter-color;
+	color: $primary-color;
+	border-radius: 4px;
+}
+.artist-list-container:hover .fancy-artist-name-end{
+	display: none;
+}
+.artist-list-img {
+	width: 150px;
+	height: 150px;
+	cursor: pointer;
+}
+.artist-list-name {
+	text-align: center;
+	cursor: pointer;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 7px 11px;
+	position: relative;
+}
+#artist-return-artist-list {
+	font-size: 24px;
+	margin: 5px 15px 5px 15px;
+	display: inline-block;
+	cursor: pointer;
+}
+.artist-breadcrumb {
+	font-size: 12px;
+	margin-right: 12px;
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+.fancy-artist-name-end {
+	position: absolute;
+	top: 0;
+	right: 2px;
+	height: 100%;
+	width: 40px;
+	background-image: -webkit-gradient(linear,left top,right top,color-stop(0%,rgba(255,255,255,0)),color-stop(100%,$primary-color));
+	background-image: -webkit-linear-gradient(left,rgba(255,255,255,0),$primary-color);
+	background: linear-gradient(to right,rgba(255,255,255,0),$primary-color);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,StartColorStr='#00ffffff',EndColorStr=$primary-color);
+}
+
+.noselect {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.scroll-left {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	line-height: 50px;
+	text-align: center;
+	z-index: -1;
+	top: -6px;
+	/* Starting position */
+	-moz-transform:translateX(100%);
+	-webkit-transform:translateX(100%);
+	transform:translateX(100%);
+	/* Apply animation to this element */
+	-moz-animation: scroll-left 10s linear infinite;
+	-webkit-animation: scroll-left 10s linear infinite;
+	animation: scroll-left 10s linear infinite;
+}
+
+/* Navigation */
+.music-delete-data {
+	position: absolute;
+	right: 13px;
+	top: 12px;
+	font-size: 19px;
+	color: $light-color;
+	cursor: pointer;
+}
+.music-delete-data:hover {
+	color: $primary-color;
+}
+
+/* Select for Tags */
+.select2-selection__rendered {
+  display: inline-block !important;
+  padding-left: 8px !important;
+}
+#app-navigation .select2 li {
+  width: auto;
+}
+.selectTags {
+  padding: 5px;
+}
+
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+	0%   { -moz-transform: translateX(100%); }
+	100% { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes scroll-left {
+	0%   { -webkit-transform: translateX(100%); }
+	100% { -webkit-transform: translateX(-100%); }
+}
+@keyframes scroll-left {
+	0%   {
+		-moz-transform: translateX(100%); /* Browser bug fix */
+		-webkit-transform: translateX(100%); /* Browser bug fix */
+		transform: translateX(100%);
+	}
+	100% {
+		-moz-transform: translateX(-100%); /* Browser bug fix */
+		-webkit-transform: translateX(-100%); /* Browser bug fix */
+		transform: translateX(-100%);
+	}
+}

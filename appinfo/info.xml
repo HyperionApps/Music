@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<info>
+    <id>hyperionmusic</id>
+    <name>HyperionMusic</name>
+    <description>Hyperion Music - NextCloud music player</description>
+    <licence>AGPL</licence>
+    <requiremin>8.1</requiremin>
+    <author>Antopower</author>
+    <version>1.0.0</version>
+    <namespace>HyperionMusic</namespace>
+    <category>other</category>
+    <dependencies>
+        <owncloud min-version="8.0" max-version="9.3" />
+    </dependencies>
+</info>

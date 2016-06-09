@@ -1,0 +1,151 @@
+.player-container {
+  background-color: $primary-color;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+}
+.player-button {
+  padding: 0 8px;
+  width: 40px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+/* ---------- Player - Left ---------- */
+.player-container .player-left {
+  display: inline-block;
+  width: 394px;
+}
+.player-container .song-status {
+  display: inline-block;
+}
+.player-container .song-preview {
+  display: inline-block;
+  width: 60px;
+}
+.player-container #song-preview-img {
+  width: 60px;
+  height: 60px;
+  vertical-align: bottom;
+}
+.player-container .song-info {
+  display: inline-block;
+  color: #FFFFFF;
+  width: 200px;
+}
+.song-title {
+  font-size: 18px;
+  white-space: nowrap;
+}
+.song-artist {
+  font-size: 18px;
+}
+.song-info .scrolling-text {
+  height: 24px;
+  width: 100%;
+  margin-top: 7px;
+}
+.player-left .player-main-button {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 18px;
+}
+
+/* ---------- Player - Center ---------- */
+.player-container .player-center {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  margin-top: 19px;
+}
+.seek-bar-track {
+  position: relative;
+  display: inline-block;
+  width: 68%;
+  height: 5px;
+  background-color: #EFEFED;
+}
+.seek-bar-progress {
+  height: 5px;
+  position: absolute;
+  top: 0;
+  background-color: #717171;
+}
+.seek-bar-progress-buffered {
+  height: 5px;
+  background-color: #B3B3B3;
+}
+.seek-bar-ball {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  margin-left: -8px;
+  background-color: #FFFFFF;
+}
+.time-separator {
+  display: none;
+  color: #FFFFFF;
+}
+.current-time {
+  display: inline-block;
+  color: #FFFFFF;
+  margin-right: 8px;
+}
+.duration-time {
+  display: inline-block;
+  color: #FFFFFF;
+  margin-left: 8px;
+}
+
+/* ---------- Player - Right ---------- */
+.player-container .player-right {
+  float: right;
+  width: 339px;
+  text-align: right;
+}
+.volume-bar {
+  position: relative;
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: super;
+  width: 150px;
+  margin-right: 20px;
+  background-color: #EFEFED;
+  border-radius: 0;
+  border: none;
+  height: 5px;
+}
+.volume-bar .ui-slider-handle {
+  border: none;
+  border-radius: 10px;
+  background: #FFFFFF;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-top: -1px;
+}
+.volume-bar .ui-slider-range {
+  background-color: #717171;
+  border-radius: 0;
+}
+.volume-control {
+  display: inline-block;
+  padding: 15px 0 0 15px;
+}
+.volume-control .volume-button {
+  display: inline-block;
+  font-size: 32px;
+  vertical-align: sub;
+  width: 32px;
+  color: #FFFFFF;
+  cursor: pointer;
+  text-align: left;
+}
+.ui-slider-range {
+  border-radius: 5px;
+}
