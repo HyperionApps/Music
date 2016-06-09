@@ -1,2 +1,2 @@
-nextcloud-hyperionmusic (0.0.1)
+nextcloud-hyperionmusic (1.0.0)
 * First release
