@@ -38,7 +38,7 @@ class TagController extends Controller {
      * @return tags list
      */
     public function returnAllTags(){
-        $stmtCount = \OCP\DB::prepare( 'SELECT `name`,`id` FROM `*PREFIX*systemtag` WHERE `visibility` = 1' );
+        $stmtCount = $this->db->prepareQuery( 'SELECT `name`,`id` FROM `*PREFIX*systemtag` WHERE `visibility` = 1' );
         $resultCount = $stmtCount->execute();
         $tag = [];
         while($row = $resultCount->fetchRow()) {

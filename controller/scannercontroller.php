@@ -162,7 +162,7 @@ class ScannerController extends Controller {
             $this->iDublicate++;
             return false;
         }else{
-            $stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*hyperionmusic_tracks` (`user_id`,`file`,`title`,`artist_id`,`album`,`genre`,`bitrate`,`year`,`play_time`,`path`,`time_played`,`date_added`,`file_id`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)' );
+            $stmt = $this->db->prepareQuery( 'INSERT INTO `*PREFIX*hyperionmusic_tracks` (`user_id`,`file`,`title`,`artist_id`,`album`,`genre`,`bitrate`,`year`,`play_time`,`path`,`time_played`,`date_added`,`file_id`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)' );
             $result = $stmt->execute(array($this->userId, $aTrack['file'], $aTrack['title'], $aTrack['artist_id'], $aTrack['album'], $aTrack['genre'], $aTrack['bitrate'], $aTrack['year'], $aTrack['play_time'], $aTrack['path'], $aTrack['time_played'], $aTrack['date_added'], $aTrack['file_id']));
             $insertid = \OCP\DB::insertid('*PREFIX*hyperionmusic_tracks');
             return $insertid;
@@ -188,7 +188,7 @@ class ScannerController extends Controller {
         if(isset($row['id'])){
             $insertid = $row['id'];
         }else{
-            $stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*hyperionmusic_artists` (`user_id`,`name`) VALUES(?,?)' );
+            $stmt = $this->db->prepareQuery( 'INSERT INTO `*PREFIX*hyperionmusic_artists` (`user_id`,`name`) VALUES(?,?)' );
             $result = $stmt->execute(array($this->userId, $artist));
             $insertid = \OCP\DB::insertid('*PREFIX*hyperionmusic_artist');
         }
@@ -216,7 +216,7 @@ class ScannerController extends Controller {
         if(isset($row['track_id'])){
             $insertid = $row['track_id'];
         }else{
-            $stmt = \OCP\DB::prepare( 'INSERT INTO `*PREFIX*hyperionmusic_track_artist` (`track_id`,`artist_id`) VALUES(?,?)' );
+            $stmt = $this->db->prepareQuery( 'INSERT INTO `*PREFIX*hyperionmusic_track_artist` (`track_id`,`artist_id`) VALUES(?,?)' );
             $result = $stmt->execute(array($trackId, $artistId));
             $insertid = 0;
         }
@@ -232,7 +232,7 @@ class ScannerController extends Controller {
      * @return id
      */
     public function deleteMusicDataUser(){
-        $stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*hyperionmusic_tracks` WHERE `user_id` = ?');
+        $stmt = $this->db->prepareQuery('DELETE FROM `*PREFIX*hyperionmusic_tracks` WHERE `user_id` = ?');
         $result = $stmt->execute(array($this->userId));
         if ($result > 0) {
             return $response =  ['success' => true, 'message' => 'All data has been deleted'];
@@ -248,7 +248,7 @@ class ScannerController extends Controller {
      * @NoAdminRequired
      */
     private function checkIfTrackDbExists($fileid){
-        $stmtCount = \OCP\DB::prepare( 'SELECT  COUNT(`id`)  AS COUNTID FROM `*PREFIX*hyperionmusic_tracks` WHERE `user_id` = ? AND `file_id` = ? ' );
+        $stmtCount = $this->db->prepareQuery( 'SELECT  COUNT(`id`)  AS COUNTID FROM `*PREFIX*hyperionmusic_tracks` WHERE `user_id` = ? AND `file_id` = ? ' );
         $resultCount = $stmtCount->execute(array($this->userId, $fileid));
         $row = $resultCount->fetchRow();
         if(isset($row['COUNTID']) && $row['COUNTID'] > 0){

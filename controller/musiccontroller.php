@@ -231,7 +231,7 @@ class MusicController extends Controller {
      * @return String artist
      */
     private function _getArtistFromId($artistId) {
-        $stmtCount = \OCP\DB::prepare('SELECT `name` FROM `*PREFIX*hyperionmusic_artists` WHERE `user_id` = ? AND `id` = ?');
+        $stmtCount = $this->db->prepareQuery('SELECT `name` FROM `*PREFIX*hyperionmusic_artists` WHERE `user_id` = ? AND `id` = ?');
         $result = $stmtCount->execute(array($this->userId,$artistId));
         $row = $result->fetchRow();
         return $row['name'];
@@ -287,7 +287,7 @@ class MusicController extends Controller {
      * @return id
      */
     public function returnAllSongsWithTags($tags) {
-        $stmtCount = \OCP\DB::prepare('SELECT `objectid` FROM `*PREFIX*systemtag_object_mapping` WHERE `systemtagid` IN (' . $tags . ')');
+        $stmtCount = $this->db->prepareQuery('SELECT `objectid` FROM `*PREFIX*systemtag_object_mapping` WHERE `systemtagid` IN (' . $tags . ')');
         $resultCount = $stmtCount->execute();
         $tag = [];
         while ($row = $resultCount->fetchRow()) {
@@ -301,7 +301,7 @@ class MusicController extends Controller {
      * @NoAdminRequired
      */
     private function _deleteFromDB($Id, $path, $fileId) {
-        $stmt = \OCP\DB::prepare('DELETE FROM `*PREFIX*hyperionmusic_tracks` WHERE `user_id` = ? AND `id` = ? AND `path` = ? AND `file_id` = ?');
+        $stmt = $this->db->prepareQuery('DELETE FROM `*PREFIX*hyperionmusic_tracks` WHERE `user_id` = ? AND `id` = ? AND `path` = ? AND `file_id` = ?');
         $result = $stmt->execute(array($this->userId, $Id, $path, $fileId));
     }
 
