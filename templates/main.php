@@ -7,6 +7,7 @@ script('hyperionmusic', 'select2.min');
 script('hyperionmusic', 'mousetrap');
 style('hyperionmusic', 'style');
 style('hyperionmusic', 'select2.min');
+style('hyperionmusic/3rdparty/fontawesome','font-awesome');
 ?>
 
 <div id="app">

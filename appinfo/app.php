@@ -9,8 +9,6 @@
  */
 
 
-\OCP\Util::addStyle('hyperionmusic', '../3rdparty/fontawesome/css/font-awesome.min');
-
 \OCP\App::addNavigationEntry([
 	// the string under which your app will be referenced in owncloud
 	'id' => 'hyperionmusic',
