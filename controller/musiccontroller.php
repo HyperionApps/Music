@@ -182,13 +182,14 @@ class MusicController extends Controller {
 
         $aSongs = '';
         while ($row = $result->fetchRow()) {
-
-            $path = \OC\Files\Filesystem::getPath($row['file_id']);
-
-            if (\OC\Files\Filesystem::file_exists($path)) {
-                $row['path'] = $path;
-                $aSongs[] = $row;
-            } else {
+            try {
+                $path = \OC\Files\Filesystem::getPath($row['file_id']);
+                if (\OC\Files\Filesystem::file_exists($path)) {
+                    $row['path'] = $path;
+                    $aSongs[] = $row;
+                }
+            }
+            catch (\OCP\Files\NotFoundException $ex) {
                 $this->_deleteFromDB($row['id'], $row['path'], $row['file_id']);
             }
 
