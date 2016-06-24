@@ -100,7 +100,7 @@ class ScannerController extends Controller {
 
                 /* PLAYTIME */
                 $playTimeString = $ThisFileInfo['playtime_string'];
-                if($playTimeString == null) {
+                if($playTimeString === null) {
                     $playTimeString = '';
                 }
 
@@ -164,7 +164,7 @@ class ScannerController extends Controller {
         }else{
             $stmt = $this->db->prepareQuery( 'INSERT INTO `*PREFIX*hyperionmusic_tracks` (`user_id`,`file`,`title`,`artist_id`,`album`,`genre`,`bitrate`,`year`,`play_time`,`path`,`time_played`,`date_added`,`file_id`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)' );
             $result = $stmt->execute(array($this->userId, $aTrack['file'], $aTrack['title'], $aTrack['artist_id'], $aTrack['album'], $aTrack['genre'], $aTrack['bitrate'], $aTrack['year'], $aTrack['play_time'], $aTrack['path'], $aTrack['time_played'], $aTrack['date_added'], $aTrack['file_id']));
-            $insertid = \OCP\DB::insertid('*PREFIX*hyperionmusic_tracks');
+            $insertid = \OC::$server->getDatabaseConnection()->lastInsertId('*PREFIX*hyperionmusic_tracks');
             return $insertid;
         }
 
@@ -190,7 +190,7 @@ class ScannerController extends Controller {
         }else{
             $stmt = $this->db->prepareQuery( 'INSERT INTO `*PREFIX*hyperionmusic_artists` (`user_id`,`name`) VALUES(?,?)' );
             $result = $stmt->execute(array($this->userId, $artist));
-            $insertid = \OCP\DB::insertid('*PREFIX*hyperionmusic_artist');
+            $insertid = \OC::$server->getDatabaseConnection()->lastInsertId('*PREFIX*hyperionmusic_tracks');
         }
         return $insertid;
 

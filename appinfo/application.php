@@ -71,7 +71,7 @@ class Application extends App {
         });
 
         $container -> registerService('UserId', function(IContainer $c) {
-            return \OCP\User::getUser();
+            return \OC::$server->getUserSession()->getUser()->getUID();
         });
 
 

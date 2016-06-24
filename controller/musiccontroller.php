@@ -167,7 +167,7 @@ class MusicController extends Controller {
      * @return songArray
      */
     public function loadSongs($artistId = null) {
-        if($artistId != null) {
+        if($artistId !== null) {
             $where = "WHERE t.user_id = ? AND artist_id = '" . $artistId . "' ";
         } else {
             $where = "WHERE t.user_id = ?";
