@@ -4,7 +4,7 @@
     <name>HyperionMusic</name>
     <description>Hyperion Music - NextCloud music player</description>
     <licence>AGPL</licence>
-    <author>Antopower & MrEvertide</author>
+    <author>Antopower, MrEvertide</author>
     <version>1.0.0</version>
     <namespace>HyperionMusic</namespace>
     <category>other</category>
