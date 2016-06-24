@@ -37,7 +37,7 @@ class TagController extends Controller {
      * @NoAdminRequired
      * @return tags list
      */
-    public function returnAllTags(){
+    public function getAllTags(){
         $stmtCount = $this->db->prepareQuery( 'SELECT `name`,`id` FROM `*PREFIX*systemtag` WHERE `visibility` = 1' );
         $resultCount = $stmtCount->execute();
         $tag = [];

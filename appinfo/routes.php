@@ -30,7 +30,7 @@ $application->registerRoutes(
             ['name' => 'music#getartist', 'url' => '/getartist', 'verb' => 'POST'],
             ['name' => 'music#getartistlist', 'url' => '/getartistlist', 'verb' => 'POST'],
             ['name' => 'music#addtimeplayed', 'url' => '/addtimeplayed', 'verb' => 'POST'],
-            ['name' => 'tag#returnAllTags', 'url' => '/returnalltags', 'verb' => 'POST']
+            ['name' => 'tag#getAllTags', 'url' => '/getalltags', 'verb' => 'POST']
         ]
     ]
 );

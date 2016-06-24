@@ -129,7 +129,7 @@
             //Activate Tag Selector
             var tagSelector = $(".js-example-basic-multiple");
             tagSelector.select2({tags: true, placeholder: 'Select a tag'});
-            var url = OC.generateUrl('/apps/hyperionmusic/returnalltags');
+            var url = OC.generateUrl('/apps/hyperionmusic/getalltags');
             var data = {};
             $.post(url, data).success(function (response) {
                 if (response.data !== undefined) {
