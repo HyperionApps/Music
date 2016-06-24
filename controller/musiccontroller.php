@@ -207,7 +207,7 @@ class MusicController extends Controller {
      * @return songArray
      */
     public function loadArtists() {
-        $SQL = "SELECT * from oc_hyperionmusic_artists where `user_id` = ? ORDER BY `name` ASC";
+        $SQL = "SELECT * from *PREFIX*hyperionmusic_artists where `user_id` = ? ORDER BY `name` ASC";
 
         $stmt = $this->db->prepareQuery($SQL);
         $result = $stmt->execute(array($this->userId));
@@ -248,7 +248,7 @@ class MusicController extends Controller {
         array_walk($songId, 'intval');
         $ids = implode(', ', $songId);
 
-        $SQL = "SELECT t.id,t.title,a.name as artist,t.album,t.genre,t.bitrate,t.year,t.play_time,t.path,t.time_played,t.date_added,t.file_id FROM oc_hyperionmusic_tracks as t
+        $SQL = "SELECT t.id,t.title,a.name as artist,t.album,t.genre,t.bitrate,t.year,t.play_time,t.path,t.time_played,t.date_added,t.file_id FROM *PREFIX*hyperionmusic_tracks as t
                 inner join *PREFIX*hyperionmusic_artists as a on t.artist_id = a.id
                 WHERE t.user_id = ?
                 AND file_id IN (" . $ids . ")
